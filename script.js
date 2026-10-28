@@ -6,7 +6,7 @@
   const items = $$('[data-en]');
   items.forEach((el) => (el.dataset.de = el.innerHTML));
   const titles = { de: document.title, en: 'AI Workshop – Center for Entrepreneurship, Reutlingen University' };
-  /*const ph = { de: ['Dein Name', 'Deine E-Mail'], en: ['Your name', 'Your email'] };*//
+  /*const ph = { de: ['Dein Name', 'Deine E-Mail'], en: ['Your name', 'Your email'] };*/
 
   function setLang(l) {
     document.documentElement.lang = l;
@@ -51,14 +51,4 @@
     c.style.setProperty('--my', e.clientY - r.top + 'px');
   }, { passive: true });
 
-  /* ---- Kontaktformular ----
-     Für den Versand kann später Microsoft Forms, Formspree oder Supabase integriert werden.
-     Bis dahin: mailto-Fallback, der das E-Mail-Programm mit den Eingaben öffnet. */
-  $('#cf').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const f = new FormData(e.target);
-    const body = `${f.get('m')}\n\n${f.get('n')} <${f.get('e')}>`;
-    location.href = 'mailto:cfe.ki-werkstatt@reutlingen-university.de?subject=' +
-      encodeURIComponent(f.get('s')) + '&body=' + encodeURIComponent(body);
-  });
 })();
