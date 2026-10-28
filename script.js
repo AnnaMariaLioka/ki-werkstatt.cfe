@@ -6,16 +6,16 @@
   const items = $$('[data-en]');
   items.forEach((el) => (el.dataset.de = el.innerHTML));
   const titles = { de: document.title, en: 'AI Workshop – Center for Entrepreneurship, Reutlingen University' };
-  const ph = { de: ['Dein Name', 'Deine E-Mail'], en: ['Your name', 'Your email'] };
+  /*const ph = { de: ['Dein Name', 'Deine E-Mail'], en: ['Your name', 'Your email'] };*//
 
   function setLang(l) {
     document.documentElement.lang = l;
     items.forEach((el) => (el.innerHTML = el.dataset[l]));
     document.title = titles[l];
     $$('.lang button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.l === l));
-    const f = $('#cf');
+    /*const f = $('#cf');
     f.n.placeholder = ph[l][0];
-    f.e.placeholder = ph[l][1];
+    f.e.placeholder = ph[l][1];**/
     try { localStorage.setItem('lang', l); } catch (e) {}
   }
   $$('.lang button').forEach((b) => b.addEventListener('click', () => setLang(b.dataset.l)));
